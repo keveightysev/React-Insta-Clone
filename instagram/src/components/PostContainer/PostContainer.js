@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CommentSection from '../CommentSection/CommentSection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +9,7 @@ import './PostContainer.css';
 const PostContainer = props => {
     return (
         <main>
-            {props.data.dummyData.map(item => (
+            {props.data.map(item => (
             <section key={item.thumbnailUrl}>    
                 <div className="post-header">
                     <img src={item.thumbnailUrl} alt={item.username} />
@@ -29,6 +30,15 @@ const PostContainer = props => {
             ))}
         </main>
     );
+}
+
+PostContainer.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        thumbnailUrl: PropTypes.string,
+        username: PropTypes.string,
+        imageUrl: PropTypes.string,
+        likes: PropTypes.number
+    }))
 }
 
 export default PostContainer;
