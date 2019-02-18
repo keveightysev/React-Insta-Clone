@@ -1,0 +1,36 @@
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.logo {
+    width: 30%;
+    font-size: 7rem;
+    padding: 20px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.logo svg {
+    padding: 0 12px;
+}
+
+.logo img {
+    width: 60%;
+    border-left: 1px solid black;
+    padding: 0 12px;
+}
+
+input {
+    width: 30%;
+}
+
+.icons {
+    display: flex;
+    width: 30%;
+    font-size: 5rem;
+    justify-content: space-around;
+}
