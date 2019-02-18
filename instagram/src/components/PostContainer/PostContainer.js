@@ -1,4 +1,6 @@
 import React from 'react';
+
+import CommentSection from '../CommentSection/CommentSection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComment } from '@fortawesome/free-regular-svg-icons';
 
@@ -18,6 +20,10 @@ const PostContainer = props => {
                     <FontAwesomeIcon icon={faHeart} />
                     <FontAwesomeIcon icon={faComment} />
                 </div>
+                <div className="likes">
+                    <p>{item.likes}</p>
+                </div>
+                <CommentSection data={item} />
             </section>
             ))}
         </main>
