@@ -11,9 +11,9 @@ class PostContainer extends React.Component {
         return (
             <main>
                 {this.props.data.map((item, index) => {
-                if (this.props.searchTerm.length === 0  || this.props.searchTerm === item.username) {
+                if (this.props.searchTerm.length === 0  || item.username.includes(this.props.searchTerm)) {
                     return <Post item={item} key={index} />
-                }
+                } return null;
                 })}
             </main>
         );

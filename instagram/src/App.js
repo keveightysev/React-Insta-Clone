@@ -10,22 +10,52 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
+      data: dummyData,
       searchTerm: '',
     }
   }
 
-searchInput = e => {
+  componentDidMount = () => {
+    this.getLocalStorage();
+
+    window.addEventListener(
+      'beforeunload',
+      this.saveLocalStorage
+    );
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener(
+      'beforeunload',
+      this.saveLocalStorage
+    );
+  }
+
+  getLocalStorage = () => {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)) {
+        let value = localStorage.getItem(key);
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  saveLocalStorage = () => {
+    for (let key in this.state) {
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
+  }
+
+  searchInput = e => {
   this.setState({
     searchTerm: e.target.value,
   })
 }
-
-  componentDidMount() {
-    this.setState({
-      data: dummyData,
-    })
-  }
 
   render() {
     return (
