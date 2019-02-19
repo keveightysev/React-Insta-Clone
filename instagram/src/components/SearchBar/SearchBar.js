@@ -13,7 +13,7 @@ const SearchBar = props => {
                 <FontAwesomeIcon icon={faInstagram} />
                 <img src={logo} alt="Instagram logo"/>
             </div>
-            <input type="search" />
+            <input type="search" value={props.searchTerm} onChange={props.searchInput} />
             <div className="icons">
                 <FontAwesomeIcon icon={faCompass} />
                 <FontAwesomeIcon icon={faHeart} />

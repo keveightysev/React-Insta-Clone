@@ -11,8 +11,15 @@ class App extends Component {
     super();
     this.state = {
       data: [],
+      searchTerm: '',
     }
   }
+
+searchInput = e => {
+  this.setState({
+    searchTerm: e.target.value,
+  })
+}
 
   componentDidMount() {
     this.setState({
@@ -23,8 +30,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchBar />
-        <PostContainer data={this.state.data} />
+        <SearchBar searchTerm={this.state.searchTerm} searchInput={this.searchInput} />
+        <PostContainer data={this.state.data} searchTerm={this.state.searchTerm} />
       </div>
     );
   }
