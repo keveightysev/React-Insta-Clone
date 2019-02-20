@@ -22,12 +22,14 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form action="#" onSubmit={this.loginSubmit}>
+            <form action="#" onSubmit={this.loginSubmit} className="login-form">
+                <label htmlFor="username">Username</label>
                 <input type="text" 
                     value={this.state.username} 
                     onChange={this.handleInput}
                     name="username"
                 />
+                <label htmlFor="password">Password</label>
                 <input type="password"
                 onChange={this.handleInput}
                 name="password"
