@@ -1,10 +1,5 @@
 import React from 'react';
 
-const authenticate = App =>
-    class extends React.Component {
-        render() {
-            return <App />
-        }
-    };
+const authenticate = App => props => <App {...props} />;
 
 export default authenticate;
