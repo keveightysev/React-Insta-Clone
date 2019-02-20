@@ -7,26 +7,9 @@ import Login from './components/Login/Login'
 import './App.css';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      username: '',
-      password: '',
-    }
-  }
-
-  loginSubmit = (username, password) => {
-    this.setState({
-      username: username,
-      password: password,
-    })
-  }
-
   render(){
-    const Page = authenticate(Login);
-    return (
-      <Page {...this.state} loginSubmit={this.loginSubmit}/>
-    );
+    const Page = authenticate(PostsPage)(Login);
+    return <Page {...this.state} />
   }
 }
 

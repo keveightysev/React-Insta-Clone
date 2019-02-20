@@ -7,7 +7,6 @@ import Post from './Post';
 import './PostContainer.css';
 
 class PostContainer extends React.Component {
-
     
     render() {
         return (

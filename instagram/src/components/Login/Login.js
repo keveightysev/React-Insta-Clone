@@ -17,12 +17,10 @@ class Login extends React.Component {
     }
 
     loginSubmit = e => {
-        e.preventDefault();
         localStorage.setItem("username", this.state.username);
     }
 
     render() {
-        console.log(this.state.username, this.state.password)
         return (
             <form action="#" onSubmit={this.loginSubmit}>
                 <input type="text" 
