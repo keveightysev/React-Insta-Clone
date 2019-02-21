@@ -1,8 +1,52 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
+import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComment } from '@fortawesome/free-regular-svg-icons';
+
+const PostHeader = styled.div`
+    display: flex;
+    height: 75px;
+    align-items: center;
+    padding-left: 5px;
+
+    img {
+        height: 45%;
+        border-radius: 50%;
+        margin: 0 10px;
+    }
+`;
+
+const Photo = styled.div`
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+`;
+
+const PostIcons = styled.div`
+    font-size: 2rem;
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+`;
+
+const Likes = styled.div`
+    p {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+        padding: 10px;
+    }
+`;
+
+const PostStyle = styled.section`
+    border: 1px solid lightgray;
+    margin: 30px 0;
+`;
 
 class Post extends React.Component {
     constructor(props){
@@ -32,23 +76,23 @@ class Post extends React.Component {
 
     render() {
         return(
-            <section key={this.props.item.thumbnailUrl}>    
-                <div className="post-header">
+            <PostStyle key={this.props.item.thumbnailUrl}>    
+                <PostHeader>
                     <img src={this.props.item.thumbnailUrl} alt={this.props.item.username} />
                     <h2>{this.props.item.username}</h2>
-                </div>
-                <div className="photo">
+                </PostHeader>
+                <Photo>
                     <img src={this.props.item.imageUrl} alt=""/>
-                </div>
-                <div className="post-icons">
+                </Photo>
+                <PostIcons>
                     <FontAwesomeIcon icon={faHeart} onClick={this.likeClick} />
                     <FontAwesomeIcon icon={faComment} />
-                </div>
-                <div className="likes">
+                </PostIcons>
+                <Likes>
                     <p>{this.state.likes} likes</p>
-                </div>
+                </Likes>
                 <CommentSection data={this.props.item} />
-            </section>
+            </PostStyle>
         );
     }
 }
