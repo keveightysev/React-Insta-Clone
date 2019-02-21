@@ -1,5 +1,39 @@
 import React from 'react';
-import './Login.css';
+import styled from 'styled-components';
+
+const LoginForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid lightgray;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+
+    label {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    input {
+        width: 75%;
+        height: 25px;
+        margin: 10px 0;
+        border: 1px solid black;
+    }
+
+    button {
+        background: black;
+        color: white;
+        border: 1px solid black;
+        padding: 5px 20px;
+        font-size: 2.5rem;
+        margin-top: 10px;
+    }
+`;
 
 class Login extends React.Component {
     constructor() {
@@ -22,7 +56,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form action="#" onSubmit={this.loginSubmit} className="login-form">
+            <LoginForm onSubmit={this.loginSubmit}>
                 <label htmlFor="username">Username</label>
                 <input type="text" 
                     value={this.state.username} 
@@ -35,7 +69,7 @@ class Login extends React.Component {
                 name="password"
                 />
                 <button>Login now!</button>
-            </form>
+            </LoginForm>
         );
     }
 }
